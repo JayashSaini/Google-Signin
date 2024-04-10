@@ -1,9 +1,9 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 function Signin() {
     const handleGoogleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/auth/google');
+            const response = await axios.get('http://localhost:8000/api/v1/auth/google');
             console.log(response);
         } catch (error) {
             console.error('Error logging in with Google:', error);
