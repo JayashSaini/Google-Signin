@@ -21,6 +21,7 @@ const generateAccessAndRefreshTokens = async (userId) => {
 
 const SocialLoginHandler = async (req, res) => {
   try {
+    console.log("hello world");
     const user = await User.findById(req.user?._id);
     console.log(user);
     if (!user) {

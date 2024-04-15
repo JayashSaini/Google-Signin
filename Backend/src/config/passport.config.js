@@ -1,5 +1,6 @@
 const GoogleStrategy = require("passport-google-oauth20");
 const User = require("../models/user.model.js");
+const { json } = require("express");
 
 const initializingPassport = (passport) => {
   passport.use(
@@ -16,6 +17,7 @@ const initializingPassport = (passport) => {
           username: profile.displayName,
           thumbnail: profile._json.picture,
         });
+        console.log("Profile si : " + JSON.stringify(profile));
         user.save({ validationBeforeSave: false });
         return done(null, user);
       }

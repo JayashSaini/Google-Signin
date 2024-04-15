@@ -1,14 +1,7 @@
-import axios from 'axios'
 
 function Signin() {
     const handleGoogleLogin = async () => {
-        try {
-            const response = await axios.get('http://localhost:8000/api/v1/auth/google');
-            console.log(response);
-        } catch (error) {
-            console.error('Error logging in with Google:', error);
-            // Handle error, e.g., display an error message to the user
-        }
+       window.open("http://localhost:8000/api/v1/auth/google/redirect","_self")
     };
 
     return (

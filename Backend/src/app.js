@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const authRouter = require("./routes/auth.routes.js");
+const userRouter = require("./routes/user.routes.js");
+// const { errorHandler } = require("./middlewares/error.middleware.js");
 const { initializingPassport } = require("./config/passport.config.js");
 const passport = require("passport");
 const expressSession = require("express-session");
@@ -52,11 +54,8 @@ app.get("/api/v1/hello", (req, res) => {
 });
 // Routes
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/users", userRouter);
 
 // Error Handling Middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
 
 module.exports = app;
